@@ -1,0 +1,36 @@
+Changes in d4:
+- Replaced the technical Loading Phrases with randomly selected game-related phrases
+- Added a new toolbar at the bottom of the interface on crashes:
+    - It has the "CLOSE" button to close the window
+    - It has the "OPEN LOG" button to open the full crash log
+- Added 2 new Settings:
+    - General Tab:
+        - No MtS++ Loading Screen
+            - Reverts the Loading Screen back to the MtS one, which displays all of the technical loading information
+    - Game Tab:
+        - Skip MegaCrit intro
+            - Skips the MegaCrit intro that happens on game launch
+- Fixed an issue where the information window could be blank after loading until resized
+- Dev:
+    - Added a new JSON parameter:
+        - Loading Phrases | String[]
+            - Allows mod developers to define a list of potential loading phrases for their mods
+
+Changes in d3:
+- Added a new loading screen when the game is launching
+- Any errors in the console window should now be painted red for clarity
+- Steam Overlay should not longer be launching on the Mod Launcher window itself, but rather just in game
+- Fixed an issue where on certain computers there would be visual glitches when changing the theme
+- Fixed an issue where the launcher could hang indefinitely until closed if you were subscribed to a Steam Item but it was not downloaded
+- Fixed an issue where Together in Spire raid integration was not available for the patreon version
+
+Changes in d2:
+- Added a patchnotes button at the top bar. If you're reading this, hi!
+- Added a log folder open button at the top bar
+- Fixed an issue where restarting with a theme would not look correctly on the border of the program
+- Fixed an issue where dragging and dropping mods would result in them not being able to be selected
+- Fixed an issue where enabling a mod and then starting multiplay would not start with that selected mod
+- Attempted to fix an issue where the UI would visually duplicate on certain graphics cards
+
+d1:
+- Initial release

@@ -17,6 +17,9 @@
         <kotlin.version>1.4.10</kotlin.version>
         <gdx.version>1.9.5</gdx.version>
         <lwjgl.version>3.3.1</lwjgl.version>
+        <Steam.path>E:\Marino\Projects\Together in Spire\Builds</Steam.path>
+        <Libraries.path>H:\SteamLibrary\steamapps\common\SlayTheSpire</Libraries.path>
+        <Game.path>E:\Marino\Games\Slay The Spire\Game</Game.path>
     </properties>
 
     <dependencies>
@@ -52,6 +55,11 @@
             <version>1.2</version>
         </dependency>
         <dependency>
+            <groupId>com.formdev</groupId>
+            <artifactId>flatlaf</artifactId>
+            <version>3.1.1</version>
+        </dependency>
+        <dependency>
             <groupId>org.ow2.asm</groupId>
             <artifactId>asm</artifactId>
             <version>6.2.1</version>
@@ -71,7 +79,7 @@
             <artifactId>slaythespire</artifactId>
             <version>015</version>
             <scope>system</scope>
-            <systemPath>${basedir}/../lib/desktop-1.0.jar</systemPath>
+            <systemPath>${Libraries.path}/desktop-1.0.jar</systemPath>
         </dependency>
 
         <dependency>
@@ -216,6 +224,16 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <nonFilteredFileExtensions>
+                        <nonFilteredFileExtension>ttf</nonFilteredFileExtension>
+                    </nonFilteredFileExtensions>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
                 <version>3.2.1</version>
                 <executions>
@@ -285,7 +303,7 @@
                                 <transformer
                                     implementation="org.apache.maven.plugins.shade.resource.IncludeResourceTransformer">
                                     <resource>images/ui/icon.png</resource>
-                                    <file>src/main/resources/assets/icon.png</file>
+                                    <file>src/main/resources/assets/newIcon.png</file>
                                 </transformer>
                             </transformers>
                             <filters>
@@ -318,7 +336,7 @@
                                 <transformer
                                     implementation="org.apache.maven.plugins.shade.resource.IncludeResourceTransformer">
                                     <resource>images/ui/icon.png</resource>
-                                    <file>src/main/resources/assets/icon.png</file>
+                                    <file>src/main/resources/assets/newIcon.png</file>
                                 </transformer>
                             </transformers>
                             <filters>
@@ -417,6 +435,12 @@
                                         <exclude>**</exclude>
                                     </excludes>
                                 </filter>
+                                <filter>
+                                    <artifact>com.formdev:flatlaf</artifact>
+                                    <includes>
+                                        <include>**</include>
+                                    </includes>
+                                </filter>
                             </filters>
                         </configuration>
                     </execution>
@@ -431,8 +455,7 @@
                         <phase>package</phase>
                         <configuration>
                             <target>
-                                <copy file="target/ModTheSpire.jar" tofile="../lib/ModTheSpire.jar"/>
-                                <copy file="target/ModTheSpire.jar" tofile="../_ModTheSpire/ModTheSpire.jar"/>
+                                <copy file="target/ModTheSpire.jar" tofile="${Game.path}/ModTheSpire_Patched.jar"/>
                             </target>
                         </configuration>
                         <goals>

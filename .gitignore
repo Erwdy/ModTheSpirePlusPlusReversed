@@ -55,3 +55,5 @@ dependency-reduced-pom.xml
 
 # maven wrapper
 !/.mvn/wrapper/maven-wrapper.jar
+!/src/main/java/com/evacipated/cardcrawl/modthespire/
+!/src/main/java/com/evacipated/cardcrawl/modthespire/**
