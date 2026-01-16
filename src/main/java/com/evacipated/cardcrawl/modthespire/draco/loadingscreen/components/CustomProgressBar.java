@@ -21,7 +21,7 @@ public class CustomProgressBar extends JProgressBar {
     int width = getWidth();
     int height = getHeight();
     int inset = 1;
-    int barWidth = (int)(getValue() / getMaximum() * (width - inset * 2));
+    int barWidth = (int)(getValue() / (double)getMaximum() * (width - inset * 2));
     g2d.setColor(Color.WHITE);
     g2d.fillRect(inset, inset, barWidth, height - inset * 2);
   }

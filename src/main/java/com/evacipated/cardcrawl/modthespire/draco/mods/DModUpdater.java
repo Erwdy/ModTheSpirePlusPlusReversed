@@ -118,16 +118,16 @@ public class DModUpdater {
     JDialog dialog = DUIHelp.CreateModalTextPopup((JFrame)Loader.ex, "Update check", "Checking for Steam updates");
     ArrayList<ModInfo> needsUpdates = new ArrayList<>();
     SwingUtilities.invokeLater(() -> {
-          ArrayList<DSteamPublishedFileID> needUpdatesIds = DSteamUtil.CheckModUpdates();
-      needUpdatesIds.forEach(mId -> {
-        for (int i = 0; i < mods.length; ++i) {
-          ModInfo mod = mods[i];
-          if (mod.steamWorkshopDetails != null && mod.steamWorkshopDetails.publishedFileID.equals(mId)) {
-            needsUpdates.add(mod);
-          }
-        }
-      });
-          dialog.dispose();
+        ArrayList<DSteamPublishedFileID> needUpdatesIds = DSteamUtil.CheckModUpdates();
+        needUpdatesIds.forEach(mId -> {
+            for (int i = 0; i < mods.length; ++i) {
+                ModInfo mod = mods[i];
+                if (mod.steamWorkshopDetails != null && mod.steamWorkshopDetails.publishedFileID.equals(mId)) {
+                    needsUpdates.add(mod);
+                }
+            }
+        });
+        dialog.dispose();
         });
     dialog.setVisible(true);
     return needsUpdates;
